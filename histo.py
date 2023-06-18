@@ -44,4 +44,4 @@ def histogram_tracking(video):
 
     cv2.destroyAllWindows()
 
-histogram_tracking('MotorcycleChase')
+histogram_tracking('Elephants')

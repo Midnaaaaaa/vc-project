@@ -2,13 +2,13 @@ import numpy as np
 import cv2
 import os
 
-casc=cv2.CascadeClassifier('cascade.xml')
+casc=cv2.CascadeClassifier('elephants.xml')
 
 # Check if the cascade classifier is loaded successfully
 if casc.empty():
     raise Exception("Failed to load cascade classifier.")
 
-base_path = 'MotorcycleChase/img/'
+base_path = 'Elephants/img/'
 Idir = os.listdir(base_path)
 
 paths = list(map(lambda img_name : base_path + img_name, Idir))

@@ -69,4 +69,4 @@ def sift_tracking(video):
 
 
 
-sift_tracking('MotorcycleChase')
+sift_tracking('Bike')
