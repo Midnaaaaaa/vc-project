@@ -47,11 +47,11 @@ def sift_tracking(video):
         src_points = np.float32([kp_obj[m.queryIdx].pt for m in good_matches]).reshape(-1, 1, 2)
         dst_points = np.float32([kp_esc[m.trainIdx].pt for m in good_matches]).reshape(-1, 1, 2)
 
-
-        M, _ = cv2.findHomography(src_points, dst_points, cv2.RANSAC, 5.0)
+        M, _ = cv2.estimateAffinePartial2D(src_points, dst_points)
+        #M, _ = cv2.findHomography(src_points, dst_points, cv2.RANSAC, 5.0)
 
         pts = np.float32([[0, 0], [rect[2], 0], [rect[2], rect[3]], [0, rect[3]]]).reshape(-1, 1, 2)
-        transformed_pts = cv2.perspectiveTransform(pts, M)
+        transformed_pts = cv2.transform(pts, M)
         x_min_new = int(np.min(transformed_pts[:, 0, 0]))
         y_min_new = int(np.min(transformed_pts[:, 0, 1]))
         x_max_new = int(np.max(transformed_pts[:, 0, 0]))
@@ -69,4 +69,4 @@ def sift_tracking(video):
 
 
 
-sift_tracking('Bike')
+sift_tracking('PolarBear1')
