@@ -41,9 +41,9 @@ def sift_tracking(video):
 
         #print(good_matches)
 
-        im3 = (cv2.drawMatches(im_obj, kp_obj, im_esc, kp_esc, good_matches, im_esc))
-        cv2.imshow('SIFT', im3)
-        cv2.waitKey(0)
+        #im3 = (cv2.drawMatches(im_obj, kp_obj, im_esc, kp_esc, good_matches, im_esc))
+        #cv2.imshow('SIFT', im3)
+        #cv2.waitKey(0)
 
         # Find transformation between matched keypoints
         src_points = np.float32([kp_obj[m.queryIdx].pt for m in good_matches]).reshape(-1, 1, 2)
@@ -79,4 +79,4 @@ def sift_tracking(video):
 
 
 
-sift_tracking('MotorcycleChase')
+sift_tracking('Bike')

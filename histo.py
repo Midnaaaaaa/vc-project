@@ -36,16 +36,13 @@ def histogram_tracking(video):
 
 
         # Visualización
-        # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        # cv2.imshow('Tracking', frame)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.imshow('Tracking', frame)
 
         roi = frame[y:y+h, x:x+w]
         target_hist = get_histogram(roi)
-        cv2.imshow('Tracking', roi)
-        cv2.waitKey(0)
-
-        key = cv2.waitKey(60) & 0xFF
-        if key == 27:  # tecla ESC para salir
+        #cv2.imshow('Tracking', roi)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
     cv2.destroyAllWindows()
